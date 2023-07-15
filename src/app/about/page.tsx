@@ -1,12 +1,16 @@
 import * as React from 'react';
+import Trips from './components/Trips';
 
 export const metadata = {
-    title: 'About',
+  title: 'About',
 };
 
 const About = () => {
   return (
-   <h1>About</h1>
+    <div>
+      <h1>About</h1>
+      <Trips />
+    </div>
   )
 }
 
