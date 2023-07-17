@@ -15,7 +15,8 @@ module.exports = {
         primaryLighter: '#DDD53A',
         primaryDarker: '#312A4F',
         grayPrimary: '#717171',
-        grayLighther: '#BBBFBF'
+        grayLighther: '#BBBFBF',
+        walterWhite: '#F5F5F5',
       },
       textColor: {
         dark: '#717171',
