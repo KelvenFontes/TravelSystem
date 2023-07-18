@@ -3,12 +3,13 @@
 import Button from '@/components/Button';
 import DatePicker from '@/components/DatePicker';
 import Input from '@/components/Input';
-import { Trip } from '@prisma/client';
-import { error } from 'console';
+import { watch } from 'fs';
 import { Controller, useForm } from 'react-hook-form';
 
 interface TripReservationProps {
-  trip: Trip;
+  tripSartDate: Date;
+  tripEndDate: Date;
+  maxGuests: Number;
 }
 
 interface TripReservationForm {
@@ -17,13 +18,15 @@ interface TripReservationForm {
   endDate: Date | null;
 }
 
-const TripReservation = ({ trip }: TripReservationProps) => {
+const TripReservation = ({ maxGuests, tripSartDate, tripEndDate }: TripReservationProps) => {
 
-  const { register, handleSubmit, formState: { errors }, control } = useForm<TripReservationForm>();
+  const { register, handleSubmit, formState: { errors }, control, watch } = useForm<TripReservationForm>();
 
   const onSubmit = (data: any) => {
     console.log({ data });
   };
+
+  const startDate = watch('startDate');
 
   return (
     <div className='flex flex-col px-5'>
@@ -45,6 +48,7 @@ const TripReservation = ({ trip }: TripReservationProps) => {
               onChange={field.onChange}
               selected={field.value}
               className='w-full'
+              minDate={tripSartDate}
             />}
         />
 
@@ -66,6 +70,8 @@ const TripReservation = ({ trip }: TripReservationProps) => {
               onChange={field.onChange}
               selected={field.value}
               className='w-full'
+              maxDate={tripEndDate}
+              minDate={startDate ?? tripSartDate}
             />}
         />
       </div>
@@ -78,7 +84,7 @@ const TripReservation = ({ trip }: TripReservationProps) => {
             message: 'Número de hóspedes é obrigatório.'
           },
         })}
-        placeholder={`Número de hóspedes (máx: ${trip.maxGuests})`}
+        placeholder={`Número de hóspedes (máx: ${maxGuests})`}
         className='mt-4'
         error={!!errors?.guests}
         errorMessage={errors?.guests?.message}
