@@ -42,25 +42,25 @@ const TripReservation = ({ tripId, maxGuests, tripSartDate, tripEndDate, pricePe
       setError('startDate', {
         type: 'manual',
         message: 'Esta data já está reservada.',
-      }),
-      setError('endDate', {
+      });
+      return setError('endDate', {
         type: 'manual',
         message: 'Esta data já está reservada.',
-      })
+      });
     }
 
     if (res?.error?.code === 'INVALID_START_DATE') {
       setError('startDate', {
         type: 'manual',
         message: 'Data inválida',
-      })
+      });
     }
 
     if (res?.error?.code === 'INVALID_END_DATE') {
-      setError('endDate', {
+      return setError('endDate', {
         type: 'manual',
         message: 'Data inválida',
-      })
+      });
     }
 
   };
@@ -122,11 +122,16 @@ const TripReservation = ({ tripId, maxGuests, tripSartDate, tripEndDate, pricePe
             value: true,
             message: 'Número de hóspedes é obrigatório.'
           },
+          max: {
+            value: maxGuests,
+            message: `Número de hóspedes não pode ser maior que ${maxGuests}.`,
+          },
         })}
         placeholder={`Número de hóspedes (máx: ${maxGuests})`}
         className='mt-4'
         error={!!errors?.guests}
         errorMessage={errors?.guests?.message}
+        type='number'
       />
 
       <div className='flex justify-between mt-3'>
