@@ -32,6 +32,19 @@ export async function POST(request: Request) {
     );
   }
 
+  if (isBefore(new Date(req.endDate), new Date(trip.endDate))) {
+    return new NextResponse(
+      JSON.stringify({
+        error: {
+          code: 'INVALID_END_DATE',
+        },
+      }),
+      {
+        status: 400,
+      }
+    );
+  }
+
   const reservation = await prisma.tripReservation.findMany({
     where: {
       tripId: req.tripId,
