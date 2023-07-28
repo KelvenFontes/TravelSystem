@@ -12,7 +12,7 @@ export async function DELETE(request: Request, {params: {reservationId}}: {param
     };
   }
 
-  const reservation = await prisma .tripReservation.delete({
+  const reservation = await prisma.tripReservation.delete({
     where: {
       id: reservationId
     }
