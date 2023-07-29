@@ -75,7 +75,12 @@ const TripReservation = ({ tripId, maxGuests, tripSartDate, tripEndDate, pricePe
   const endDate = watch('endDate');
 
   return (
-    <div className='flex flex-col px-5'>
+    <div className='flex flex-col px-5 lg:min-w-[380px] lg:border-grayLighther lg:border lg:rounded-lg lg:shadow-md'>
+
+      <p className="hidden text-xl text-primaryDarker mb-4 lg:block">
+        <span className="font-semibold">R$ {pricePerDay}</span> pro dia
+      </p>
+
       <div className='flex gap-4'>
         <Controller
           name='startDate'
@@ -147,7 +152,7 @@ const TripReservation = ({ tripId, maxGuests, tripSartDate, tripEndDate, pricePe
         </p>
       </div>
 
-      <div className='pb-10 border-b border-b-grayLighther w-full'>
+      <div className='pb-10 border-b border-b-grayLighther w-full lg:border-none lg:pb-0'>
         <Button className='mt-3 w-full' onClick={() => handleSubmit(onSubmit)()}>Reservar agora</Button>
       </div>
 
