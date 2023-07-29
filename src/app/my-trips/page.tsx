@@ -48,10 +48,10 @@ const MyTrips = () => {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:max-w-[500px]">
           <p className="mt-5 font-medium text-primaryDarker text-xl">Você ainda não tem nenhuma reserva :(</p>
           <Link href='/'>
-            <Button className="w-full mt-5">Faça reservas agora!</Button>
+            <Button className="w-full mt-5 lg:mt-5">Faça reservas agora!</Button>
           </Link>
         </div>
       )}
