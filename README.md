@@ -4,7 +4,7 @@
 
 ## :page_with_curl: Sobre o Projeto
 
-O TripsWise é um projeto que oferece aos viajantes uma plataforma completa para explorar o mundo de forma inteligente. Com uma interface responsiva e amigável, o TripsWise permite que os usuários descubram destinos turísticos incríveis, personalizem suas viagens de acordo com suas preferências, realizem reservas com segurança e autentiquem-se rapidamente usando o Google.
+O TripsWise é um projeto desenvolvido na fullstackweek, onde oferece aos viajantes uma plataforma completa para explorar o mundo de forma inteligente. Com uma interface responsiva e amigável, o TripsWise permite que os usuários descubram destinos turísticos incríveis, personalizem suas viagens de acordo com suas preferências, realizem reservas com segurança e autentiquem-se rapidamente usando o Google.
 
 ## :computer: Funcionalidades:
 
@@ -27,17 +27,14 @@ O TripsWise é um projeto que oferece aos viajantes uma plataforma completa para
 
 ---
 
-## Passo a passo de para execução:
+## Passo a passo de para execução do TripsWise:
 
 1. Clone o repositório para sua máquina local usando o comando:
 ```bash
 git clone https://github.com/KelvenFontes/TravelSystem.git
 ```
 
-## Executando:
-__Para começar, siga os passos abaixo para executar o TripsWise:__
-
-1. Acesse a pasta do projeto:
+2. Acesse a pasta do projeto:
 ```bash
 cd tripswise
 ```
@@ -49,49 +46,49 @@ npm install
 yarn
 ```
 
-2. Conecte-se ao banco de dados fornecendo sua CONNECTIONSTRING no arquivo .env. Usando o Supabase, utilize a seguinte conexão:
+4. Conecte-se ao banco de dados fornecendo sua CONNECTIONSTRING no arquivo .env. Usando o Supabase, utilize a seguinte conexão:
 ```bash
 DATABASE_URL="postgres://postgres:<sua-senha>@db.<seu-cluster>.supabase.co:5432/postgres"
 ```
 
-3. Conecte-se ao [Google Developer Console](https://console.cloud.google.com/cloud-resource-manager) e crie uma nova credencial, adicionado as chaves no arquivo .env:
+5. Conecte-se ao [Google Developer Console](https://console.cloud.google.com/cloud-resource-manager) e crie uma nova credencial, adicionado as chaves no arquivo .env:
 ```bash
 GOOGLE_CLIENT_ID=<public-key>
 GOOGLE_CLIENT_SECRET=<secret-key>
 ```
 
-4. Conecte-se ao [Stripe](https://stripe.com/br) passando as chaves de acesso no arquivo .env para poder ser feita a conexão:
+6. Conecte-se ao [Stripe](https://stripe.com/br) passando as chaves de acesso no arquivo .env para poder ser feita a conexão de pagamento:
 ```bash
 NEXT_PUBLIC_STRIPE_KEY=<public-key>
 STRIPE_SECRET_KEY=<secret-key>
 STRIPE_WEBHOOK_SECRET_KEY=<secret-key-webhook>
 ```
 
-5. Conecte-se ao [NextAuth.js]([https://generate-secret.vercel.app/32](https://next-auth.js.org/deployment)) e adicione sua chave secreta no arquivo .env:
+7. Conecte-se ao [NextAuth.js](https://next-auth.js.org/deployment) e adicione sua chave secreta no arquivo .env:
 ```bash
 NEXTAUTH_SECRET=<secret-key>
 ```
 
-6. Adicione a linha abaixo no arquivo .env e quando o pagamento for realizado com sucesso, será direcionado a essa página:
+8. Adicione a linha abaixo no arquivo .env e quando o pagamento for realizado com sucesso, será direcionado a essa página:
 ```bash
 HOST_URL=http://localhost:3000/my-trips
 ```
 
-4. Realize o build:
+9. Realize o build:
 ```bash
 npm run build
 # or
 yarn build
 ```
 
-5. Agora, inicie (ele estará disponível em http://localhost:3000/):
+10. Agora, inicie (ele estará disponível em http://localhost:3000/):
 ```bash
 npm start
 # or
 yarn start
 ```
 
-Alternativa: Caso quiser rodar em ambiente de desenvolvimento (ele estará disponível em http://localhost:3000/):
+__Alternativa: Caso quiser rodar em ambiente de desenvolvimento (ele estará disponível em http://localhost:3000/):__
 ```bash
 npm run dev
 # or
@@ -100,4 +97,4 @@ yarn dev
 
 Agora você pode executar o TripsWise em sua máquina e começar a utilizar a aplicação!
 
-Feito por Kelven Fontes :wave: [LinkedIn](https://www.linkedin.com/in/kelven-bento-fontes-4ab2b2210)!
+Desenvolvido por Kelven Fontes :wave: [LinkedIn](https://www.linkedin.com/in/kelven-bento-fontes-4ab2b2210)!
